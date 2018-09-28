@@ -1,15 +1,15 @@
 <template>
-        <li class="list-group-item">
-            <div class="handle">
-                <a href="javascript:;" @click="deleteItem()">删除</a>
-            </div>
-            <p class="user">
-                <span>{{comment.name}}</span>说：
-            </p> 
-            <p class="centence">
-             {{comment.content}}
-            </p>
-        </li>
+    <li class="list-group-item">
+        <div class="handle">
+            <a href="javascript:;" @click="deleteItem()">删除</a>
+        </div>
+        <p class="user">
+            <span>{{comment.name}}</span>说：
+        </p> 
+        <p class="centence">
+            {{comment.content}}
+        </p>
+    </li>
 </template>
 
 
@@ -25,7 +25,7 @@
                 const comment = this.comment
                 const delComment = this.delComment
                 const index = this.index
-                if(window.confirm('确定删除${comment.name}的评论吗？')){
+                if(window.confirm('确定删除${this.comment.name}的评论吗？')){
                     delComment(index)
                 }
             }
