@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <div class="handle">
-            <a href="javascript:;" @click="deleteItem()">删除</a>
+            <a-button @click="deleteItem()">删除</a-button>
         </div>
         <p class="user">
             <span>{{comment.name}}</span>说：
@@ -25,10 +25,14 @@
                 const comment = this.comment
                 const delComment = this.delComment
                 const index = this.index
-                if(window.confirm('确定删除${this.comment.name}的评论吗？')){
+                if(window.confirm(`确定删除${this.comment.name}的评论吗？`)){
                     delComment(index)
+                    success()
                 }
-            }
+              }
+        },
+        success () {
+          this.$message.success("删除成功!");
         }
     }
 </script>

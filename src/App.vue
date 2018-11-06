@@ -1,9 +1,13 @@
 <template>
+  <div>
     <div>
         <header class="site-header jumbotron">
             <div class="container">
                 <div class="col-xs-12">
                     <h1>请发表vue言论</h1>
+                      <a-button type="primary">Button</a-button>
+                      <a-button type="primary">Button</a-button>
+                      <a-button type="primary">Button</a-button>
                 </div>
             </div>
             
@@ -13,6 +17,7 @@
             <List :comments="comments" :delComment="delComment"/>
         </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -54,5 +59,4 @@ export default {
 
 </script>
 
-<style>
-</style>
+

@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default btn-right" @click="add()">提交</button>
+                    <button type="button" class="btn btn-default btn-right" @click="openFullScreen"  v-loading.fullscreen.lock="fullscreenLoading">提交</button>
                 </div>
             </div>
         </form>
@@ -30,7 +30,8 @@
         data(){
            return {
                name: "",
-               content: ""
+               content: "",
+               fullscreenLoading: false
             }
         },
         methods:{
@@ -52,7 +53,16 @@
                 //4 清除输入框的内容
                 this.name = ""
                 this.content= ""
-            }
+            },
+             openFullScreen() {
+                 this.fullscreenLoading = true;
+                 setTimeout(() => {
+                    this.fullscreenLoading = false;
+                 }, 1000);
+                setTimeout(() => {
+                 this.add();
+                }, 1200);
+             }
         }
     }
 </script>
