@@ -5,9 +5,6 @@
             <div class="container">
                 <div class="col-xs-12">
                     <h1>请发表vue言论</h1>
-                      <a-button type="primary">Button</a-button>
-                      <a-button type="primary">Button</a-button>
-                      <a-button type="primary">Button</a-button>
                 </div>
             </div>
             
@@ -24,7 +21,7 @@
   import Form from './components/Add.vue'
   import List from './components/List.vue'
 export default {
-    data(){
+    data() {
         return {
             comments: [ // 数据在哪个组件，更新数据的方法就应该在哪个组建里面
                 {

@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <div class="handle">
-            <el-button type="primary" @click="deleteItem()" v-loading.fullscreen.lock="fullscreenLoading">删除</el-button>
+            <el-button type="primary" class="btn-right" @click="deleteItem()" v-loading.fullscreen.lock="fullscreenLoading">删除</el-button>
         </div>
         <p class="user">
             <span>{{comment.name}}</span>说：
@@ -41,9 +41,16 @@
                  }, 1000);
                  setTimeout(() => {
                     this.delComment(index);
+                    this.open();
                  }, 1000);
 
-             }
+             },
+            open(){
+                this.$message({
+                message: '删除成功！',
+                type: 'success'
+             });
+            }
 
         }
     }
@@ -72,5 +79,8 @@ li{
 }
 .user{
     font-size: 22px;
+}
+.el-button{
+    margin-left: -20px;
 }
 </style>

@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default btn-right" @click="openFullScreen"  v-loading.fullscreen.lock="fullscreenLoading">提交</button>
+                    <el-button type="primary" class="btn btn-default btn-right" @click="openFullScreen"  v-loading.fullscreen.lock="fullscreenLoading">提交</el-button>
                 </div>
             </div>
         </form>
@@ -61,8 +61,15 @@
                  }, 1000);
                 setTimeout(() => {
                  this.add();
+                 this.open_message();
                 }, 1100);
-             }
+             },
+            open_message(){
+                this.$message({
+                   message: '添加成功',
+                   type: 'success'
+                });
+            }
         }
     }
 </script>
