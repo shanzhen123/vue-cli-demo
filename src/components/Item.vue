@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <div class="handle">
-            <a-button @click="deleteItem()">删除</a-button>
+            <el-button type="primary" @click="deleteItem()" v-loading.fullscreen.lock="fullscreenLoading">删除</el-button>
         </div>
         <p class="user">
             <span>{{comment.name}}</span>说：
@@ -20,19 +20,31 @@
             index: Number,
             delComment: Function
         },
+        data() {
+          return {
+              fullscreenLoading: false
+            }
+        },
         methods: {
             deleteItem (){
                 const comment = this.comment
                 const delComment = this.delComment
                 const index = this.index
                 if(window.confirm(`确定删除${this.comment.name}的评论吗？`)){
-                    delComment(index)
-                    success()
+                    this.openFullScreen(index);
                 }
-              }
-        },
-        success () {
-          this.$message.success("删除成功!");
+              },
+             openFullScreen(index) {
+                 this.fullscreenLoading = true;
+                 setTimeout(() => {
+                    this.fullscreenLoading = false;
+                 }, 1000);
+                 setTimeout(() => {
+                    this.delComment(index);
+                 }, 1000);
+
+             }
+
         }
     }
 </script>
